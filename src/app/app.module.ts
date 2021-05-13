@@ -5,7 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {FlickrImagesComponent} from './flickr/flickr-image/flickr-images.component';
 import {CloudImagesComponent} from './cloud/cloud-images/cloud-images.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,8 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientJsonpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
