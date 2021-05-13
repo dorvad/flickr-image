@@ -14,8 +14,8 @@
   <!-- A list of images in a 3-column grid. -->
   <div>
     <mat-grid-list cols="3">
-      <mat-grid-tile *ngFor='let i of items'>
-        <img [src]='i.media.m'>
+      <mat-grid-tile *ngFor='let item of items' class="img-grid-title">
+        <img [src]='item?.media?.m' (click)="saveImage(item)">
       </mat-grid-tile>
     </mat-grid-list>
   </div>
