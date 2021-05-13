@@ -18,7 +18,7 @@ export class CloudImagesComponent implements OnInit {
     this.loadImages();
   }
 
-  loadImages() {
+  loadImages(): void {
     this.images = this.cloudImageService.loadImages();
   }
 
