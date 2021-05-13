@@ -39,6 +39,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ReactiveFormsModule} from '@angular/forms';
 
 const materialModules = [
   CdkTreeModule,
@@ -87,7 +89,9 @@ const materialModules = [
     AppRoutingModule,
     HttpClientModule,
     HttpClientJsonpModule,
-    ...materialModules
+    BrowserAnimationsModule,
+    ...materialModules,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

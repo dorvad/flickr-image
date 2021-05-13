@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FlickrImageService} from './flickr-image.service';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-flickr-images',
@@ -10,16 +11,18 @@ export class FlickrImagesComponent implements OnInit {
 
   items: any = [];
 
+  searchTagFormControl = new FormControl('', [
+    Validators.required
+  ]);
+
   constructor(private flickrImageService: FlickrImageService) {
   }
 
   ngOnInit(): void {
-    this.loadImages('forest');
   }
 
   public loadImages(searchQueryParam?: string): void {
     this.flickrImageService.loadImages(searchQueryParam).subscribe(response => {
-      console.log(response);
       this.items = response.items;
     });
   }

@@ -1,8 +1,22 @@
-<!-- A list of images in a 3-column grid. -->
-<div>
-  <mat-grid-list cols="3" rowHeight="2:1">
-    <mat-grid-tile *ngFor='let i of items'>
-      <img [src]='i.media.m' class="tile-image">
-    </mat-grid-tile>
-  </mat-grid-list>
+<div class="wrapper">
+  <div class="form-field-wrapper">
+    <mat-form-field>
+      <div style="text-align:center;">
+        <label>
+          <input matInput placeholder="Tag" [formControl]="searchTagFormControl"/>
+        </label>
+      </div>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" (click)="loadImages(searchTagFormControl.value)">
+      Search
+    </button>
+  </div>
+  <!-- A list of images in a 3-column grid. -->
+  <div>
+    <mat-grid-list cols="3">
+      <mat-grid-tile *ngFor='let i of items'>
+        <img [src]='i.media.m'>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
 </div>
