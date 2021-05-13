@@ -1,14 +1,14 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { FlickrImageComponent } from './flickr-image/flickr-image.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {FlickrImagesComponent} from './flickr/flickr-image/flickr-images.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FlickrImageComponent
+    FlickrImagesComponent
   ],
   imports: [
     BrowserModule,
@@ -17,4 +17,5 @@ import { FlickrImageComponent } from './flickr-image/flickr-image.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

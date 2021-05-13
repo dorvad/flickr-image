@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {FlickrImageComponent} from './flickr-image/flickr-image.component';
+import {FlickrImagesComponent} from './flickr/flickr-image/flickr-images.component';
 
 const routes: Routes = [
-  {path: 'flickr/images', pathMatch: 'full', component: FlickrImageComponent},
+  {path: 'flickr/images', pathMatch: 'full', component: FlickrImagesComponent},
   {path: '*', pathMatch: 'full', redirectTo: 'cloud/images'} // redirect all routes to the cloud images component
 ];
 
