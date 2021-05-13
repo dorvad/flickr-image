@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {FlickrImageService} from './flickr-image.service';
 
 @Component({
   selector: 'app-flickr-images',
@@ -7,10 +8,17 @@ import {Component, OnInit} from '@angular/core';
 })
 export class FlickrImagesComponent implements OnInit {
 
-  constructor() {
+  constructor(private flickrImageService: FlickrImageService) {
   }
 
   ngOnInit(): void {
+    this.loadImages('forest');
+  }
+
+  public loadImages(searchQueryParam?: string): void {
+    this.flickrImageService.loadImages(searchQueryParam).subscribe(value => {
+      console.log(value);
+    });
   }
 
 }
