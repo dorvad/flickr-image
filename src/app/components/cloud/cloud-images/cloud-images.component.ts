@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {IFlickrImageItem} from '../../../models/iflickr-image';
+import {CloudImagesService} from './cloud-images.service';
 
 @Component({
   selector: 'app-cloud-images',
@@ -7,10 +9,26 @@ import {Component, OnInit} from '@angular/core';
 })
 export class CloudImagesComponent implements OnInit {
 
-  constructor() {
+  images: IFlickrImageItem[] = [];
+
+  constructor(private cloudImageService: CloudImagesService) {
   }
 
   ngOnInit(): void {
+    this.loadImages();
+  }
+
+  loadImages() {
+    this.images = this.cloudImageService.loadImages();
+  }
+
+  deleteImage(chosenImage: IFlickrImageItem): void {
+    if (chosenImage) {
+      this.cloudImageService.deleteImage(chosenImage);
+      this.loadImages(); // reload images after deleting
+    } else {
+      console.log('Invalid deleting image!');
+    }
   }
 
 }

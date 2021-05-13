@@ -13,8 +13,6 @@ export class CloudImagesService {
 
   loadImages(): IFlickrImageItem[] {
     let images: IFlickrImageItem[] = [];
-
-
     const foundValues = localStorage.getItem(CloudImagesService.IMAGES);
 
     if (foundValues) {
@@ -38,6 +36,15 @@ export class CloudImagesService {
       images.push(newImage);
       localStorage.setItem(CloudImagesService.IMAGES, JSON.stringify(images));
     }
+  }
+
+  deleteImage(newImage: IFlickrImageItem): void {
+    const foundImages = this.loadImages();
+
+    const filteredImage = foundImages.filter(value => {
+      return value?.link !== newImage?.link;
+    });
+    localStorage.setItem(CloudImagesService.IMAGES, JSON.stringify(filteredImage));
   }
 
 }

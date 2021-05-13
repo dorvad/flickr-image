@@ -11,7 +11,7 @@ import {CloudImagesService} from '../../cloud/cloud-images/cloud-images.service'
 })
 export class FlickrImagesComponent implements OnInit {
 
-  items: IFlickrImageItem[] = [];
+  images: IFlickrImageItem[] = [];
 
   searchTagFormControl = new FormControl('', [
     Validators.required
@@ -25,8 +25,7 @@ export class FlickrImagesComponent implements OnInit {
 
   loadImages(searchQueryParam?: string): void {
     this.flickrImageService.loadImages(searchQueryParam).subscribe(response => {
-      console.log(response);
-      this.items = response.items;
+      this.images = response.items;
     });
   }
 
@@ -34,7 +33,7 @@ export class FlickrImagesComponent implements OnInit {
     if (chosenImage) {
       this.cloudImageService.saveImage(chosenImage);
     } else {
-      console.log(`Invalid chosen image!`);
+      console.log('Invalid chosen image!');
     }
   }
 

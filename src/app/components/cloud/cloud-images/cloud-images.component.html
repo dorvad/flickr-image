@@ -1,1 +1,11 @@
-<p>cloud-images works!</p>
+<div class="wrapper">
+  <!-- A list of images in a 3-column grid. -->
+  <div>
+    <mat-grid-list cols="3">
+      <mat-grid-tile *ngFor='let image of images' class="img-grid-title">
+        <img [src]='image?.media?.m' (click)="deleteImage(image)">
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>
+
