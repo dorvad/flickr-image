@@ -8,6 +8,8 @@ import {FlickrImageService} from './flickr-image.service';
 })
 export class FlickrImagesComponent implements OnInit {
 
+  items: any = [];
+
   constructor(private flickrImageService: FlickrImageService) {
   }
 
@@ -16,8 +18,9 @@ export class FlickrImagesComponent implements OnInit {
   }
 
   public loadImages(searchQueryParam?: string): void {
-    this.flickrImageService.loadImages(searchQueryParam).subscribe(value => {
-      console.log(value);
+    this.flickrImageService.loadImages(searchQueryParam).subscribe(response => {
+      console.log(response);
+      this.items = response.items;
     });
   }
 

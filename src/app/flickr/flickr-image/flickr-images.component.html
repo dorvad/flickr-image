@@ -1,1 +1,8 @@
-<p>flickr-images works!</p>
+<!-- A list of images in a 3-column grid. -->
+<div>
+  <mat-grid-list cols="3" rowHeight="2:1">
+    <mat-grid-tile *ngFor='let i of items'>
+      <img [src]='i.media.m' class="tile-image">
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
